@@ -8,16 +8,18 @@ import { Image } from 'expo-image'
 import { styles } from '../../assets/styles/home.styles'
 import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
-import { useRouter } from 'expo-router'
 import { BalanceCard } from '@/components/BalanceCard'  
-import { FlatList } from '@/components/FlatList'
+import { FlatList } from "react-native"
 import { TransactionItem } from '../../components/TransactionItem'
-import {NoTransactionsFound} from '../../components/NoTransactionsFound'
+import NoTransactionsFound from '../../components/NoTransactionsFound'
+import {useState} from 'react'
+import { RefreshControl, Alert } from 'react-native'
+import { useRouter } from 'expo-router';
 
 export default function Page() {
-  const { user } = useUser()
-  const router = useRouter()
-  const { transactions, summary, isLoading, loadData, deleteTransaction } = useTransactions(user.id)
+  const router = useRouter();
+  const { user } = useUser();
+  const { transactions, summary, isLoading, loadData, deleteTransaction } = useTransactions(user.id);
   const [refreshing,setRefreshing]=useState(false);
 
   useEffect(() => {
@@ -55,13 +57,14 @@ export default function Page() {
             <Image
               source={require('../../assets/images/logo.png')}
               style={styles.headerLogo}
-              resizeMode="contain"
+              contentFit="contain"
             />
 
             <View style={styles.welcomeContainer}>
               <Text style={styles.welcomeText}>Welcome</Text>
               <Text style={styles.usernameText}>
-                {user?.emailAddresses[0]?.emailAddress.split("@")[0]}
+                Zubair
+                {/* {user?.emailAddresses[0]?.emailAddress.split("@")[0]} */}
               </Text>
             </View>
           </View>

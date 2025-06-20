@@ -147,7 +147,7 @@ export default function SignUpScreen() {
        placeholderTextColor="#9A8478"
        secureTextEntry={true}
        placeholder='Enter Password'
-       onChangeText={(password) => setEmailAddress(password)}      
+       onChangeText={(password) => setPassword(password)}      
        />
 
         <TouchableOpacity style ={styles.button} onPress={onSignUpPress}>

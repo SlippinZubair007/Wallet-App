@@ -18,7 +18,7 @@ const CATEGORY_ICONS={
 
 export const TransactionItem =({item,onDelete})=>{
     const isIncome =parseFloat(item.amount)>0;
-    const iconName=CATEGORY_ICONS[items.category] || "pricing-outline";
+    const iconName=CATEGORY_ICONS[item.category] || "pricetag-outline";
 
     return (
         <View style={styles.transactionCard} key={item.id}>
